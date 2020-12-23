@@ -1,6 +1,6 @@
-'use strict';
+const { geocode } = require('opencage-api-client');
 
-module.exports.hello = async event => {
+module.exports.hello = async (event) => {
   return {
     statusCode: 200,
     body: JSON.stringify(
@@ -12,7 +12,25 @@ module.exports.hello = async event => {
       2
     ),
   };
+};
 
-  // Use this code if you don't use the http event with the LAMBDA-PROXY integration
-  // return { message: 'Go Serverless v1.0! Your function executed successfully!', event };
+module.exports.geocode = async (event) => {
+  try {
+    const result = await geocode(event.queryStringParameters);
+    return {
+      statusCode: 200,
+      body: JSON.stringify(result),
+    };
+  } catch (error) {
+    // log error message ? and success above ?
+    // console.log(error);
+
+    return {
+      statusCode: error.status.code,
+      body: JSON.stringify({
+        code: error.status.code,
+        message: error.status.message,
+      }),
+    };
+  }
 };
