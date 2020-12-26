@@ -1,8 +1,7 @@
 jobs:
   test:
-    executor:
-      name: node/default
-      tag: '13'
+    docker:
+      - image: circleci/node:14
     steps:
       - checkout
       - node/install-packages:
