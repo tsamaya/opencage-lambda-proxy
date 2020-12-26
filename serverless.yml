@@ -16,7 +16,8 @@ plugins:
 functions:
   geocode:
     handler: handler.geocode
-    events:
-      - http:
+    events: # The Events that trigger this Function
+      - httpApi:
           path: geocode
           method: GET
+          cors: true
