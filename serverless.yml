@@ -14,15 +14,6 @@ plugins:
   - serverless-offline # serverless-offline needs to be last in the list
 
 functions:
-  hello:
-    handler: handler.hello
-    events:
-      - http:
-          path: / # this matches the base path
-          method: ANY
-      - http:
-          path: /{any+} # this matches any path, the token 'any' doesn't mean anything special
-          method: ANY
   geocode:
     handler: handler.geocode
     events:
