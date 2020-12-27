@@ -9,15 +9,24 @@ provider:
   runtime: nodejs12.x
   stage: dev
   region: eu-west-1
+  httpApi:
+    cors: true
 
 plugins:
   - serverless-offline # serverless-offline needs to be last in the list
+
+package:
+  include:
+    - .env
+  exclude:
+    - .circleci/**
+    - __tests__/**
+    - coverage/**
 
 functions:
   geocode:
     handler: handler.geocode
     events: # The Events that trigger this Function
       - httpApi:
-          path: geocode
+          path: /geocode
           method: GET
-          cors: true
