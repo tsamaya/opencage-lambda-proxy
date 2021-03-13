@@ -87,7 +87,7 @@ The enpdpoints gives the proxy URL : `https://xxxxxxxxxx.execute-api.eu-west-1.a
 
 Test it with for example (updating with yours):
 
-````bash
+```bash
 curl 'https://xxxxxxxxxx.execute-api.eu-west-1.amazonaws.com/geocode?q=lyon'
 ```
 
@@ -95,7 +95,7 @@ To deploy with a different STAGE and/or REGION please use the following command 
 
 ```bash
 npx serverless deploy --stage $STAGE --region $REGION
-````
+```
 
 As an example deploying to `production` in `London` region with an aws profile `tsamaya`:
 
