@@ -1,6 +1,6 @@
 service: opencage-lambda-proxy
 
-frameworkVersion: '2'
+frameworkVersion: '3'
 
 useDotenv: true
 
